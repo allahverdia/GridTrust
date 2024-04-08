@@ -1,0 +1,1 @@
+The two zip files in this directory are archive projects for use with MCUXpresso for the NPX LPC55S69 chip. Enroll performs enrollment of a specific AES key and counter value, and needs to be run one time on the hardware. encrypt_ctr is the runtime code and should be flashed onto the device after running enroll once.
