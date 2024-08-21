@@ -1,0 +1,52 @@
+UPDATE substationdevices SET counter='10000000000000000000000000000000'  WHERE UUID='1'; 1 is tempsensor, 2 is relay
+
+
+UPDATE substationdevices SET key='', counter=''  WHERE UUID='';
+
+
+DELETE FROM substationdevices WHERE UUID='';
+
+
+INSERT INTO substationdevices (UUID, classification, key, counter) VALUES ('', '', '', '');
+
+INSERT INTO substationdevices (UUID, classification, key, counter) VALUES ('1', 'temp sensor',
+ '00000000000000000000000000000000', '00000000000000000000000000000000');
+
+INSERT INTO substationdevices (UUID, classification, key, counter) VALUES ('2', 'relay',
+ '00000000000000000000000000000001', '00000000000000000000000000000000');
+
+
+        CREATE TABLE IF NOT EXISTS substationdevices (
+            id              SERIAL PRIMARY KEY,
+            UUID            VARCHAR UNIQUE NOT NULL,
+            classification  VARCHAR NOT NULL,
+            key             VARCHAR UNIQUE NOT NULL,
+            counter         VARCHAR NOT NULL
+            );
+
+
+
+
+
+
+SELECT * FROM substationdevices;  //print out table contents
+
+
+
+
+----------UPDATE TYPE FUNCTIONS
+
+
+CREATE TABLE IF NOT EXISTS updatetype (
+updatetype VARCHAR);
+
+
+INSERT INTO updatetype (updatetype) VALUES ('Local');
+
+
+UPDATE updatetype SET updatetype='Local';
+
+UPDATE updatetype SET updatetype='Push';
+
+UPDATE updatetype SET updatetype='None';
+
