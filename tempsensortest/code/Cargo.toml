@@ -5,3 +5,4 @@ edition = "2021"
 
 # Dependencies for your project (none required for this basic setup)
 [dependencies]
+serialport = "4.0.1"
