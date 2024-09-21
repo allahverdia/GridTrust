@@ -1,0 +1,7 @@
+[package]
+name = "tempsensortest"
+version = "0.1.0"
+edition = "2021"
+
+# Dependencies for your project (none required for this basic setup)
+[dependencies]
