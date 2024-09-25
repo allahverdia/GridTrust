@@ -10,7 +10,7 @@ DELETE FROM substationdevices WHERE UUID='';
 INSERT INTO substationdevices (UUID, classification, key, counter) VALUES ('', '', '', '');
 
 INSERT INTO substationdevices (UUID, classification, key, counter) VALUES ('1', 'temp sensor',
- '00000000000000000000000000000000', '00000000000000000000000000000000');
+ '00000000000000000000000000000001', '00000000000000000000000000000000');
 
 INSERT INTO substationdevices (UUID, classification, key, counter) VALUES ('2', 'relay',
  '00000000000000000000000000000001', '00000000000000000000000000000000');
