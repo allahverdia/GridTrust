@@ -8,9 +8,9 @@ Initially, the counter that AES uses for encryption is `00 00 00 00 00 00 00 00 
 
 The first time you run the program, you should see an output of `05 45 aa d5 6d a2 a9 7c 36 63 d1 43 2a 3d 1c 85`
 
-Each time the program runs, the encrypted counter will be different because the counter on the board is being incremented with each run. 
+Each time the program runs, the encrypted value shown in the terminal will be different because the counter on the board is being incremented with each run. 
 
-For example, the second time you run the program, the board will encrypt `00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01` using counter `00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01` and so on. The encryption key never changes.
+For example, the second time you run the program, the board will encrypt `00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01` using counter `00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01` and so on. The encryption key and plaintext never change.
 
 Compilation and running:
 
