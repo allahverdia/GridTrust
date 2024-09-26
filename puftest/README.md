@@ -6,7 +6,7 @@ By default, the AES key on the PUF board is `00 00 00 00 00 00 00 00 00 00 00 00
 
 Initially, the counter (plaintext) that AES encrypts is `00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00`
 
-The first time you run the program, you should see an output of `05 45 aa d5 6d a2 a9 7c 36 63 d1 43 2a 3d 1c 85`
+The first time you run the program, you should see an output of `05 45 aa d5 6d a2 a9 7c 36 63 d1 43 2a 3d 1c 84`
 
 Each time the program runs, the encrypted value shown in the terminal will be different because the counter on the board is being incremented with each run. 
 
