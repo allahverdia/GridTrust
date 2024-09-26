@@ -1,5 +1,7 @@
 The code in this directory is for testing the PUF board. The code will read from serial port `ttyACM1` and log the encrypted (with AES-128 ctr mode) counter to the terminal. 
 
+This program triggers the PUF chip to produce an encrypted counter by writing the character `a` to the PUF board.
+
 By default (when the board has been enrolled and subsequently programmed with the encrypt counter project), the AES key on the PUF board is `00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01`
 
 Initially, the counter that AES uses for encryption is `00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00`
