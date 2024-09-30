@@ -2,7 +2,6 @@ use aes::Aes128;
 use aes::cipher::{BlockEncrypt, KeyInit, generic_array::GenericArray};
 use postgres::{Client, NoTls, Error};
 use typenum::U16;
-use std::str::FromStr;
 
 fn encrypt_counter(counter: &str, key: &str) -> Vec<u8> {
     let key_bytes: GenericArray<_, U16> = GenericArray::clone_from_slice(&hex_to_bytes(key));
@@ -46,7 +45,7 @@ fn read_encrypt_increment_counter(uuid: &str) -> Result<(), Error> {
         println!("Encrypted Counter: {:x?}", encrypted_counter);
 
         let new_counter = increment_counter(&counter);
-        println!("Incremented Counter: {}", new_counter);
+        println!("Counter: {}", new_counter);
 
         client.execute(
             "UPDATE substationdevices SET counter=$1 WHERE UUID=$2",
