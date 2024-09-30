@@ -1,5 +1,7 @@
 # GridTrust
 
-Hardware/software co-designed systems are increasingly prevalent due to trends such as the adoption of hardware accelerators and the availability of heterogeneous system-on-chip (SoC) architectures. A potential security concern arising from hardware/software interaction in heterogeneous computing architectures is the possibility of software-based attacks on reconfigurable hardware, and vice versa. This is especially important when considering remote updates of the software, hardware, or both combined. In this work, we have created a remote update scheme that relies on a physical unclonable function (PUF) and multiple updating parties to deliver hardware/software updates in a secure fashion. The scheme, GridTrust, provides a high level of assurance that the system only accepts updates from approved entities while also preventing common remote attacks from compromising the security of the update process.  As shown above, an attacker has multiple opportunities to attack. GridTrust’s protection features help to prevent any single attack from the locations shown in Figure 1 from succeeding.
+A repository for the source code for the complete implementation of GridTrust, excluding the networking/LAN aspects.
 
-The GridTrust scheme follows a few key tenets; (1) the usage of auditable open-source software, (2) software update authorization via two distinct entities, (3) and device authentication via a hardware fingerprinting technique known as a PUF. Used together, these techniques harden cybersecurity defenses in the electric grid supply chain against both a third-party actor and a malicious lone-wolf insider.
+Includes unit tests for the temperature sensor device, PUF board, and server. 
+
+The code in this repository has been tested on Fedora 38 and Fedora 40 operating systems. 
