@@ -14,4 +14,6 @@ For example, the second time you run the program, the board will encrypt `00 00 
 
 Compilation and running:
 
+Ensure that the PUF board is connected to the computer via USB connection from the computer to the PUF's debug port
+
 `cargo run` in the same directory as `Cargo.toml`
