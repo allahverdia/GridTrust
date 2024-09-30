@@ -33,7 +33,7 @@ fn read_encrypt_increment_counter(uuid: &str) -> Result<(), Error> {
     let mut counter = String::new();
     let mut key = String::new();
     
-    for row in client.query("SELECT counter, key FROM substationDevices WHERE UUID=$1", &[&uuid])? {
+    for row in client.query("SELECT counter, key FROM substationdevices WHERE UUID=$1", &[&uuid])? {
         counter = row.get(0);
         key = row.get(1);
     }
@@ -49,7 +49,7 @@ fn read_encrypt_increment_counter(uuid: &str) -> Result<(), Error> {
         println!("Incremented Counter: {}", new_counter);
 
         client.execute(
-            "UPDATE substationDevices SET counter=$1 WHERE UUID=$2",
+            "UPDATE substationdevices SET counter=$1 WHERE UUID=$2",
             &[&new_counter, &uuid],
         )?;
     } else {
