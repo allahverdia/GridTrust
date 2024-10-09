@@ -19,7 +19,7 @@ The first time you run the program, you should see an output of:
 
 Each time the program runs, the encrypted value shown in the terminal will be different because the counter in the database is being incremented with each run. 
 
-Compilation and running:
+**Compilation and running:**
 
 Ensure Docker is running and the PostgreSQL database has been configured correctly according to https://mooney.gatech.edu/security/gridtrust/server/
 
