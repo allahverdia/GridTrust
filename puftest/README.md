@@ -12,7 +12,7 @@ Each time the program runs, the encrypted value shown in the terminal will be di
 
 For example, the second time you run the program, the board will encrypt `00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01` and so on. The encryption key never changes.
 
-Compilation and running:
+**Compilation and running:**
 
 Ensure that the PUF board is connected to the computer via USB connection from the computer to the PUF's debug port
 
