@@ -43,6 +43,7 @@ updatetype VARCHAR);
 
 INSERT INTO updatetype (updatetype) VALUES ('Local');
 
+----------These commands change the update type, only need to run one of them
 
 UPDATE updatetype SET updatetype='Local';
 
