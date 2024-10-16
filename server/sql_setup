@@ -1,4 +1,4 @@
-UPDATE substationdevices SET counter='10000000000000000000000000000000'  WHERE UUID='1'; 1 is tempsensor, 2 is relay
+UPDATE substationdevices SET counter='00000000000000000000000000000000'  WHERE UUID='1'; // 1 is tempsensor, 2 is relay, this command can be used to edit the counter for a device
 
 
 UPDATE substationdevices SET key='', counter=''  WHERE UUID='';
