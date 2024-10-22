@@ -352,7 +352,7 @@ fn check_signatures() -> bool {
     let mut vendor_pem = String::new();
     vendor_pub_file.read_to_string(&mut vendor_pem).unwrap();
     let vendor_key = PKey::public_key_from_pem(vendor_pem.as_bytes()).unwrap();
-    let mut vendor = Verifier::new(MessageDigest::sha3_256(), &vendor_key).unwrap();
+    let mut vendor = Verifier::new(MessageDigest::sha256(), &vendor_key).unwrap();
     let mut check_file = File::open(&UPDATE_FILE_PATH_CONV).unwrap();
     let mut vendor_sig_file = File::open(&VENDOR_SIG_FILE_PATH_CONV).unwrap();
     let mut unknown = String::new();
@@ -365,7 +365,7 @@ fn check_signatures() -> bool {
     let mut util_pem = String::new();
     util_pub_file.read_to_string(&mut util_pem).unwrap();
     let util_key = PKey::public_key_from_pem(util_pem.as_bytes()).unwrap();
-    let mut util = Verifier::new(MessageDigest::sha3_256(), &util_key).unwrap();
+    let mut util = Verifier::new(MessageDigest::sha256(), &util_key).unwrap();
     let mut check_file = File::open(&UPDATE_FILE_PATH_CONV).unwrap();
     let mut util_sig_file = File::open(&UTIL_SIG_FILE_PATH_CONV).unwrap();
     let mut unknown = String::new();
