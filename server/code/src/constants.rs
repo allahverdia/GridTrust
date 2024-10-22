@@ -6,53 +6,49 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
 
+use serde::{ Serialize, Deserialize };
 
-use serde::{Serialize, Deserialize};
+pub const UTIL_SIG_FILE_PATH_TEMP: &str = "./update_files/tempsensor/util_sign64.txt";
+pub const VENDOR_SIG_FILE_PATH_TEMP: &str = "./update_files/tempsensor/vendor_sign64.txt";
+pub const UPDATE_FILE_PATH_TEMP: &str = "./update_files/tempsensor/update64.txt";
 
-pub const UTIL_SIG_FILE_PATH_TEMP:&str = "/update_files/tempsensor/util_sign64.txt";
-pub const VENDOR_SIG_FILE_PATH_TEMP:&str = "/update_files/tempsensor/vendor_sign64.txt";
-pub const UPDATE_FILE_PATH_TEMP:&str = "/update_files/tempsensor/update64.txt";
+pub const UTIL_SIG_FILE_PATH_RTU: &str = "./update_files/rtu/util_sign64.txt";
+pub const VENDOR_SIG_FILE_PATH_RTU: &str = "./update_files/rtu/vendor_sign64.txt";
+pub const UPDATE_FILE_PATH_RTU: &str = "./update_files/rtu/update64.txt";
 
-pub const UTIL_SIG_FILE_PATH_RTU:&str = "/update_files/rtu/util_sign64.txt";
-pub const VENDOR_SIG_FILE_PATH_RTU:&str = "/update_files/rtu/vendor_sign64.txt";
-pub const UPDATE_FILE_PATH_RTU:&str = "/update_files/rtu/update64.txt";
+pub const UTIL_SIG_FILE_PATH_RELAY: &str = "./update_files/relay/util_sign64.txt";
+pub const VENDOR_SIG_FILE_PATH_RELAY: &str = "./update_files/relay/vendor_sign64.txt";
+pub const UPDATE_FILE_PATH_RELAY: &str = "./update_files/relay/update64.txt";
 
-pub const UTIL_SIG_FILE_PATH_RELAY:&str = "/update_files/relay/util_sign64.txt";
-pub const VENDOR_SIG_FILE_PATH_RELAY:&str = "/update_files/relay/vendor_sign64.txt";
-pub const UPDATE_FILE_PATH_RELAY:&str = "/update_files/relay/update64.txt";
-
-
-pub const NUM_ENC_TRIES:u32 = 5;
+pub const NUM_ENC_TRIES: u32 = 5;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub enum DeviceType {
     RTU,
     TemperatureSensor,
     Relay,
-    }
+}
 
-    #[derive(Serialize, Deserialize, PartialEq, Eq, Clone)]
-    pub enum UpdateType{
-        None,
-        Local,
-        Push,
-        }
-
+#[derive(Serialize, Deserialize, PartialEq, Eq, Clone)]
+pub enum UpdateType {
+    None,
+    Local,
+    Push,
+}
 
 #[derive(Clone)]
 pub struct SubstationDevice {
-    pub uuid : String,
-    pub classification : String,
-    pub key : String,
-    pub counter : String
-
+    pub uuid: String,
+    pub classification: String,
+    pub key: String,
+    pub counter: String,
 }
 
 #[derive(Serialize, Deserialize)]
 pub struct Counter {
     pub uuid: String,
     pub enc_ctr: String,
-    pub device_type: DeviceType
+    pub device_type: DeviceType,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -70,12 +66,10 @@ pub struct UpdateStatus {
     pub status: bool,
 }
 
-
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct SensorReading {
     pub value: String,
 }
-
 
 #[derive(Debug, Clone)]
 pub struct DbReadRequest {
@@ -86,10 +80,10 @@ pub struct DbReadRequest {
 
 #[derive(Clone)]
 pub struct DbReadResponse {
-    pub uuid : String,
-    pub classification : String,
-    pub key : String,
-    pub counter : String,
+    pub uuid: String,
+    pub classification: String,
+    pub key: String,
+    pub counter: String,
     pub done_flag: bool,
     pub thread_id: u32,
 }
