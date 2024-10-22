@@ -302,7 +302,7 @@ fn serve_pufread(enc_ctr: String, uuid: String, device_type: DeviceType) -> Upda
                     device.classification = newdbresponse.classification.clone();
                     device.key = newdbresponse.key.clone();
                     device.counter = newdbresponse.counter.clone();
-                    println!("counter {}", device.counter);
+                    println!("Counter {}", device.counter);
                     set_dbresponse(newdbresponse);
                     return verify_device_ctr_ext(
                         enc_ctr,
@@ -325,7 +325,7 @@ fn verify_device_ctr_ext(
     key: String,
     device_type: DeviceType
 ) -> Update {
-    println!("deserialized = {}", enc_ctr);
+    println!("Deserialized = {}", enc_ctr);
     let substrings = enc_ctr.split_whitespace();
     let mut ctr = String::new();
     for s in substrings {
@@ -333,7 +333,7 @@ fn verify_device_ctr_ext(
     }
 
     let device = retrieve_counter(counter, key, enc_ctr).unwrap();
-    println!("device {}", device.counter);
+    println!("Device {}", device.counter);
 
     if device.counter != "" {
         let id = uuid;
@@ -469,7 +469,7 @@ fn retrieve_update_files_rtu() -> Update {
 }
 
 fn increment_counter(ctr: String) -> String {
-    println!("initial counter {}", ctr);
+    println!("Initial Counter {}", ctr);
     let number = parse_hex(&ctr);
     let mut number =
         ((number[0] as u128) << 120) |
@@ -492,7 +492,7 @@ fn increment_counter(ctr: String) -> String {
     number = number + 1;
 
     let number = format!("{:032x}", number);
-    println!("inc counter {}", number);
+    println!("Incremented Counter {}", number);
     return number;
 }
 
@@ -527,14 +527,14 @@ fn retrieve_counter(
         let ciphertext = return_ciphertext(&newkey, &block);
 
         println!("enc_ctr from Server: {:x?}", &ciphertext);
-        println!("enc_ctr from Device: {:x?}", &enc_ctr);
+        println!("enc_ctr from PUF: {:x?}", &enc_ctr);
 
         if ciphertext == enc_ctr {
-            println!("Ctrs Match");
+            println!("Encrypted Counters Match");
             device.counter = increment_counter(device.counter);
             return Ok(device);
         } else {
-            println!("Checking for ctr desync");
+            println!("Checking for Counter Desynchronization");
             device.counter = increment_counter(device.counter);
         }
     }
