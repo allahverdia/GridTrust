@@ -37,27 +37,26 @@ const POWER_DEVICE_PORT_BAUD: u32 = 19200; //9600;                              
 const UUID: &str = "2"; //ADJUST FOR EACH DEVICE. The current database on the server assume tempsensor = 1, relay = 2, rtu = 3
 
 //Files created when unpacking JSON from server
-const UTIL_SIG_FILE_PATH: &str = "/updater/files_to_use/util_sig.txt";
-const VENDOR_SIG_FILE_PATH: &str = "/updater/files_to_use/vendor_sig.txt";
-const UPDATE_FILE_PATH: &str = "/updater/files_to_use/update64.txt"; //ADJUST FOR EACH DEVICE
-const UPDATE_DIR: &str = "/updater/files_to_use";
+const UTIL_SIG_FILE_PATH: &str = "./updater/files_to_use/util_sig.txt";
+const VENDOR_SIG_FILE_PATH: &str = "./updater/files_to_use/vendor_sig.txt";
+const UPDATE_FILE_PATH: &str = "./updater/files_to_use/update64.txt"; //ADJUST FOR EACH DEVICE
+const UPDATE_DIR: &str = "./updater/files_to_use";
 
-const CERT_FILE_PATH: &str = "/updater/gridtrust.pfx"; //ADJUST FOR EACH DEVICE
-const CERT_FILE_PATH_PEM: &str = "/updater/ca2.crt";
+const CERT_FILE_PATH: &str = "./updater/gridtrust.pfx"; //ADJUST FOR EACH DEVICE
+const CERT_FILE_PATH_PEM: &str = "./updater/ca2.crt";
 
-const LOCAL_FIL_DIR: &str = "/local_updates/";
-//const LOCAL_FIL_DIR2:&str = "local_updates/";
+const LOCAL_FIL_DIR: &str = "./local_updates/";
 const LOCAL_UTIL_SIG_FILE_PATH: &str = "util_sign64.txt";
 const LOCAL_VENDOR_SIG_FILE_PATH: &str = "vendor_sign64.txt";
 const LOCAL_UPDATE_FILE_PATH: &str = "update64.txt"; //ADJUST FOR EACH DEVICE
 //Files created when converting transmitted signatures into
 //OPENSSL signature format
-const UTIL_SIG_FILE_PATH_CONV: &str = "/updater/files_to_use/util_sig_conv.txt";
-const VENDOR_SIG_FILE_PATH_CONV: &str = "/updater/files_to_use/vendor_sig_conv.txt";
-const UPDATE_FILE_PATH_CONV: &str = "/updater/files_to_use/update.txt";
+const UTIL_SIG_FILE_PATH_CONV: &str = "./updater/files_to_use/util_sig_conv.txt";
+const VENDOR_SIG_FILE_PATH_CONV: &str = "./updater/files_to_use/vendor_sig_conv.txt";
+const UPDATE_FILE_PATH_CONV: &str = "./updater/files_to_use/update.txt";
 
-const UTIL_PUB_KEY: &str = "/updater/utility.pub.pem";
-const VENDOR_PUB_KEY: &str = "/updater/vendor.pub.pem";
+const UTIL_PUB_KEY: &str = "./updater/utility.pub.pem";
+const VENDOR_PUB_KEY: &str = "./updater/vendor.pub.pem";
 
 //Enum for what type of device the client is
 #[derive(Deserialize, Serialize)]
@@ -287,7 +286,7 @@ fn check_for_update(deserialized: Update) -> std::io::Result<bool> {
 fn convert_signatures() -> Result<(), PopenError> {
     println!("checking update signatures");
 
-    Command::new("sh").arg("/updater/base64.sh").output().expect("Signature Conversion Failure");
+    Command::new("sh").arg("./updater/base64.sh").output().expect("Signature Conversion Failure");
 
     Ok(())
 }
