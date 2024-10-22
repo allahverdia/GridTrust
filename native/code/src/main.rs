@@ -50,7 +50,6 @@ const CERT_FILE_PATH: &str = "./updater/gridtrust.pfx"; //ADJUST FOR EACH DEVICE
 const CERT_FILE_PATH_PEM: &str = "./updater/ca2.crt"; //ADJUST FOR EACH DEVICE
 
 const LOCAL_FIL_DIR: &str = "./local_updates/";
-//const LOCAL_FIL_DIR2:&str = "local_updates/";
 const LOCAL_UTIL_SIG_FILE_PATH: &str = "util_sign64.txt";
 const LOCAL_VENDOR_SIG_FILE_PATH: &str = "vendor_sign64.txt";
 const LOCAL_UPDATE_FILE_PATH: &str = "update64.txt"; //ADJUST FOR EACH DEVICE
@@ -342,7 +341,7 @@ fn check_for_update(deserialized: Update) -> std::io::Result<bool> {
 fn convert_signatures() -> Result<(), PopenError> {
     println!("Checking Update Signatures");
 
-    Command::new("sh").arg("/updater/base64.sh").output().expect("Signature Conversion Failure");
+    Command::new("sh").arg("./updater/base64.sh").output().expect("Signature Conversion Failure");
 
     Ok(())
 }
