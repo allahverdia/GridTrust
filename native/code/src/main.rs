@@ -9,7 +9,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 mod puf_reader;
 mod temp_sensor;
 mod updater;
-mod relay;
 use std::fs::File;
 use std::io::{ Write };
 use serde::{ Serialize, Deserialize };
