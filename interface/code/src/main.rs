@@ -285,7 +285,7 @@ fn check_for_update(deserialized: Update) -> std::io::Result<bool> {
 fn convert_signatures() -> Result<(), PopenError> {
     println!("checking update signatures");
 
-    Command::new("sh").arg("./updater/base64.sh").output().expect("Signature Conversion Failure");
+    Command::new("sh").arg("./base64.sh").output().expect("Signature Conversion Failure");
 
     Ok(())
 }
