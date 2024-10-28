@@ -14,7 +14,7 @@ const POWER_DEVICE_PORT: &str = "/dev/ttyUSB0";
 const POWER_DEVICE_PORT_BAUD: u32 = 19200;
 
 fn main() {
-    install_update();
+    push_updates_relay();
 }
 
 fn push_updates_relay() {
