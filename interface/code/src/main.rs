@@ -345,9 +345,18 @@ fn push_updates_relay() {
     );
 }
 
-fn clean_files() -> std::io::Result<()> {
-    //deletes files created from the update process
-    println!("removing update files");
-    std::fs::remove_dir_all(&UPDATE_DIR)?;
+fn clean_files() -> std::io::Result<()> { // Ensure that this function *does not* delete the ./updater/files_to_use directory, but clears its contents
+    println!("Removing Intermediate Update Files");
+    for entry in std::fs::read_dir(&UPDATE_DIR)? {
+        let entry = entry?;
+        let path = entry.path();
+
+        if path.is_file() {
+            std::fs::remove_file(path)?;
+        }
+        else if path.is_dir() {
+            std::fs::remove_dir_all(path)?;
+        }
+    }
     Ok(())
 }
